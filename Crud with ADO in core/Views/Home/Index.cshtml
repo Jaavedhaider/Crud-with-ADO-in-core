@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Crud_with_ADO_in_core.Models.Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h3>@TempData["InsertMessage"]</h3>
+<div class="text-center">
+    <a asp-action="Create" asp-controller="Home">Create</a>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Mobile</th>
+            <th>Department</th>
+            <th>Operations</th>
+        </tr>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.id</td>
+                <td>@emp.Ename</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Mobile</td>
+                <td>@emp.DepartmentName</td>
+                <td><a asp-action="Edit" asp-controller="Home" asp-route-id="id">Edit</a> | <a asp-action="Delete" asp-controller="Home" asp-route-id="id">Delete</a></td>
+            </tr>
+        }
+    </table>
+</div>
